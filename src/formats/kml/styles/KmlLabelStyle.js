@@ -15,10 +15,12 @@
  * limitations under the License.
  */
 define([
+    '../../../util/Color',
     './KmlColorStyle',
     '../KmlElements',
     '../util/KmlNodeTransformers'
 ], function (
+    Color,
     KmlColorStyle,
     KmlElements,
     NodeTransformers
@@ -57,8 +59,16 @@ define([
     });
 
 
-    KmlLabelStyle.update = function () {
+    KmlLabelStyle.update = function (style, options) {
+        var labelOptions = options || {};
+        style = style || {};
 
+        labelOptions._labelAttributes = {
+
+        _color : style.kmlColor && Color.colorFromKmlHex(style.kmlColor) || Color.YELLOW,
+        _scale : typeof style.kmlScale == 'number' ? style.kmlScale : null
+        }
+        return labelOptions;
     };
 
     /**

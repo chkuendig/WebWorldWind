@@ -231,7 +231,7 @@ define([
         attributes._color = attributes._color || new Color(1, 1, 1, 1);
         attributes._font = attributes._font || new Font(14);
         attributes._offset = attributes._offset || new Offset(WorldWind.OFFSET_FRACTION, 0.5, WorldWind.OFFSET_FRACTION, 0.0);
-        attributes._scale = attributes._scale || 1;
+        attributes._scale = typeof attributes._scale == 'number' ? attributes._scale : 1;
         attributes._depthTest = attributes._depthTest || false;
         attributes._outlineColor = attributes._outlineColor || Color.RED;
 

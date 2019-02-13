@@ -114,19 +114,18 @@ define([
      * @returns {PlacemarkAttributes} Attributes representing the current Placemark.
      */
     KmlPlacemark.prototype.prepareAttributes = function (style, fileCache) {
-        var options = style && style.generate({}, fileCache) || {normal: {}, highlight:{}};
+        var options = style && style.generate({}, fileCache) || { normal: {}, highlight: {} };
         var placemarkAttributes = new PlacemarkAttributes(KmlStyle.placemarkAttributes(options));
+        options._labelAttributes._offset = new Offset(
+            WorldWind.OFFSET_FRACTION, 0.5,
+            WorldWind.OFFSET_FRACTION, 1.0)
 
         placemarkAttributes.imageOffset = new Offset(
             WorldWind.OFFSET_FRACTION, 0.3,
             WorldWind.OFFSET_FRACTION, 0.0);
         placemarkAttributes.imageColor = Color.WHITE;
-        placemarkAttributes.labelAttributes = new TextAttributes(KmlStyle.textAttributes({
-            _offset: new Offset(
-                WorldWind.OFFSET_FRACTION, 0.5,
-                WorldWind.OFFSET_FRACTION, 1.0),
-            _color: Color.YELLOW
-        }));
+        placemarkAttributes.labelAttributes = new TextAttributes(
+            KmlStyle.textAttributes(options._labelAttributes));
         placemarkAttributes.drawLeaderLine = true;
         placemarkAttributes.leaderLineAttributes = new ShapeAttributes(KmlStyle.shapeAttributes({
             _outlineColor: Color.RED
