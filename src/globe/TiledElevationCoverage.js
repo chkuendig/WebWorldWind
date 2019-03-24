@@ -580,6 +580,7 @@ define(['../util/AbsentResourceList',
                         elevationCoverage.removeFromCurrentRetrievals(tile.tileKey);
 
                         var contentType = xhr.getResponseHeader("content-type");
+                        contentType = contentType.split(";")[0] // ignore charset
 
                         if (xhr.status === 200) {
                             if (contentType === elevationCoverage.retrievalImageFormat
