@@ -71,10 +71,6 @@ define([
 
         BingTiledImageLayer.prototype.doRender = function (dc) {
             MercatorTiledImageLayer.prototype.doRender.call(this, dc);
-
-            if (this.inCurrentFrame) {
-                this.renderLogo(dc);
-            }
         };
 
         // Overridden from TiledImageLayer.
