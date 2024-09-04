@@ -47,7 +47,7 @@ define([
             this.displayName = "Blue Marble";
             this.pickEnabled = false;
 
-            this.urlBuilder = new WmsUrlBuilder("https://worldwind25.arc.nasa.gov/wms",
+            this.urlBuilder = new WmsUrlBuilder("worldwind25.arc.nasa.gov/wms",
                 layerName || "BlueMarble-200405", "", "1.3.0");
         };
 
