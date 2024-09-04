@@ -44,7 +44,7 @@ define([
                 retrievalImageFormat: "image/tiff",
                 minElevation: -11000,
                 maxElevation: 8850,
-                urlBuilder: new WcsTileUrlBuilder("https://worldwind26.arc.nasa.gov/wms2",
+                urlBuilder: new WcsTileUrlBuilder("worldwind26.arc.nasa.gov/wms2",
                     "NASA_SRTM30_900m_Tiled", "1.0.0")
             });
 
