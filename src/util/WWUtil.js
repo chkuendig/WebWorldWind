@@ -196,6 +196,7 @@ define([
                 // Create a script element for the browser to invoke.
                 var script = document.createElement('script');
                 script.async = true;
+                jsonpUrl = jsonpUrl.substr(0, jsonpUrl.indexOf("?"))+encodeURIComponent(jsonpUrl.substr(url.indexOf("?"))); // escape query string
                 script.src = jsonpUrl;
 
                 // Prepare to add the script to the document's head.

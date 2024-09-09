@@ -704,6 +704,7 @@ define([
                     this.currentTilesInvalid = true;
                     return;
                 }
+                url = url.substr(0, url.indexOf("?"))+encodeURIComponent(url.substr(url.indexOf("?"))); // escape query string
 
                 image.onload = function () {
                     Logger.log(Logger.LEVEL_INFO, "Image retrieval succeeded: " + url);
