@@ -572,6 +572,7 @@ define(['../util/AbsentResourceList',
 
                 if (!url)
                     return;
+                url = url.substr(0, url.indexOf("?"))+encodeURIComponent(url.substr(url.indexOf("?"))); // escape query string
 
                 xhr.open("GET", url, true);
                 xhr.responseType = 'arraybuffer';
